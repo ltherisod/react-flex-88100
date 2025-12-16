@@ -1,7 +1,9 @@
 import './App.css'
-// import ItemCount from './components/ItemCount'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import ItemCount from './components/ItemCount'
 import ItemListContainer from './components/ItemListContainer'
 import Navbar from "./components/Navbar"
+import NavBarBS from './components/NavBarBS';
 
 function App() {
  
@@ -9,10 +11,11 @@ function App() {
 console.log('App')
   return (
     <>
-      <Navbar/>
+      {/* <Navbar/> */}
+      <NavBarBS/>
       <ItemListContainer saludo='Bienvenidos a mi App!' greeting={greeting}/>
       {/* NO ENTRA EN LA PRIMER PRENTREGA */}
-      {/* <ItemCount stock={10}/> */}
+      <ItemCount stock={10}/>
     </>
   )
 }
