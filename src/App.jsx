@@ -6,6 +6,7 @@ import NavBarBS from './components/NavBarBS';
 import FetchCountries from './examples/FetchCountries';
 import FetchApi from './examples/FetchApi';
 import { withLogging } from './hoc/withLogging';
+import ItemDetailContainer from './components/ItemDetailContainer';
 function App() {
  
   const greeting ='Hello'
@@ -17,8 +18,9 @@ function App() {
       {/* <Navbar/> */}
       <NavBarBS/>
       {/* <FetchCountries/> */}
-      <FetchApi/>
+      {/* <FetchApi/> */}
       {/* <ItemListContainer saludo='Bienvenidos a mi App!' greeting={greeting}/> */}
+      <ItemDetailContainer/>
       {/* NO ENTRA EN LA PRIMER PRENTREGA */}
       {/* <ItemCount stock={10}/> */}
     {/* <FetchCONHOC/> */}

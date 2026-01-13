@@ -49,3 +49,17 @@ return new Promise((resolve, reject)=>{
     },4000)
 })
 }
+
+export const getOneProduct = (id)=>{
+return new Promise((resolve, reject)=>{
+    setTimeout(()=>{
+        if(error){
+            reject('Hubo un error intente mas tarde')
+        }else{
+            // resolve(products[0]) //harcodeado
+            let product = products.find((prod)=> prod.id === id)
+            resolve(product)
+        }
+    },4000)
+})
+}
