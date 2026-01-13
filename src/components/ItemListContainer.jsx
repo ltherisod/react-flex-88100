@@ -15,8 +15,8 @@ const [data, setData]= useState([])
     
     // const {saludo}= props
     // console.log(props)
-    console.log('ItemListContainer')
-    console.log(data)
+    // console.log('ItemListContainer')
+    // console.log(data)
     return(
         <div>
             <h1>{saludo}</h1>

@@ -46,6 +46,6 @@ return new Promise((resolve, reject)=>{
         }else{
             resolve(products)
         }
-    },2000)
+    },4000)
 })
 }
