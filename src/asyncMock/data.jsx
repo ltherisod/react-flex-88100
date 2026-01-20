@@ -37,6 +37,8 @@ const products =[
     }
 ]
 
+
+
 let error = false
 export const getProducts = ()=>{
 return new Promise((resolve, reject)=>{
@@ -49,6 +51,8 @@ return new Promise((resolve, reject)=>{
     },4000)
 })
 }
+
+
 
 export const getOneProduct = (id)=>{
 return new Promise((resolve, reject)=>{

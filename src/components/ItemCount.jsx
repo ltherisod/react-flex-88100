@@ -1,9 +1,8 @@
-import { useEffect, useState } from "react"
+import {  useState } from "react"
 
-const ItemCount = ({stock})=> {
+const ItemCount = ({stock, onAdd})=> {
     const [counter, setCounter]= useState(1)
-    //ejemplo
-     const [compra, setCompra]= useState(false)
+  
 
     const sumar = ()=>{
         if(counter < stock){
@@ -17,31 +16,11 @@ const ItemCount = ({stock})=> {
             setCounter( counter - 1)
         }
     }
-    const comprar = ()=>{
-        setCompra(!compra)
+  
+
+    const comprar = ()=> {
+        onAdd(counter)
     }
-
-    console.log('ItemCount Monta (se muestra)')
-
-    //se ejecuta siempre (no se utiliza casi nunca)
-    useEffect(()=>{
-        console.log('Me ejecuto SIEMPRE!')
-    })
-
-
-    //se ejecuta una sola vez
-
-    useEffect(()=>{
-        console.log('Me ejecuto UNA SOLA VEZ, cuando se monta el componente')
-    },[])
-
-
-    //se ejecuta cuando se monta el componente y siempre que cambie lo que este escuchando
-
-     useEffect(()=>{
-        console.log('Me ejecuto cuando se monta el componente y SIEMPRE que compra CAMBIE', 'compra: ', compra)
-    },[compra])
-
 
 
     return(
@@ -49,7 +28,8 @@ const ItemCount = ({stock})=> {
             <button className="btn btn-danger" onClick={restar}>-</button>
             <span className="btn">{counter}</span>
              <button className="btn btn-success" onClick={sumar}>+</button>
-             <button className="btn btn-primary" onClick={comprar}>Comprar</button>
+             {/* <button className="btn btn-primary" onClick={comprar} >Comprar</button> */}
+               <button className="btn btn-primary" onClick={()=>onAdd(counter)} disabled={counter === 0 || stock === 0}>Comprar</button>
         </div>
     )
 }

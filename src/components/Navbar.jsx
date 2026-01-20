@@ -1,6 +1,6 @@
 //import css
 import '../css/Navbar.css'
-
+import { NavLink } from 'react-router-dom'
 
 //import img en SRC
 import logoReact from '../assets/react.svg'
@@ -10,15 +10,15 @@ const Navbar =()=>{
 console.log('Navbar')
     return(
             <nav className='nav-container'>
-                <a className='anchor-nav' href="">
+                <NavLink className='anchor-nav' to="/">
                     {/* IMAGEN EN SRC */}
                     {/* <img src={logoReact} alt='logo' /> */}
                     {/* IMAGEN EN PUBLIC */}
                     <img src='../img/vite.svg' alt='logo' />
-                </a>
-                <a className='anchor-nav' href="">Nuevos</a>
-                <a className='anchor-nav' href="">Ofertas</a>
-                <a className='anchor-nav' href="">Mas Vendidos</a>
+                </NavLink>
+                <NavLink className='anchor-nav' to="/category/nuevos">Nuevos</NavLink>
+                <NavLink className='anchor-nav' to="/category/ofertas">Ofertas</NavLink>
+                <NavLink className='anchor-nav' to="/category/mas vendidos">Mas Vendidos</NavLink>
                 <CartWigdet/>
             </nav>
     )

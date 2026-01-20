@@ -1,8 +1,9 @@
 import React from 'react'
-import { Button, Card } from 'react-bootstrap'
+import { Card } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 const Item = ({producto}) => {
-    console.log(producto)
+   
   return (
      <Card style={{ width: '18rem' }}>
       <Card.Img variant="top" src={producto.img} />
@@ -11,7 +12,8 @@ const Item = ({producto}) => {
         <Card.Text>
          ${producto.price},00
         </Card.Text>
-        <Button variant="primary">Ver Más</Button>
+       {/* <Link to={'/item/'+producto.id} className='btn btn-dark'>Ver Más</Link> */}
+        <Link to={`/item/${producto.id}`} className='btn btn-dark'>Ver Más</Link>
       </Card.Body>
     </Card>
   )
