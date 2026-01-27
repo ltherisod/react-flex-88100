@@ -2,9 +2,11 @@ import React, { useEffect, useState } from 'react'
 import { getOneProduct, getProducts } from '../asyncMock/data'
 import { useParams } from 'react-router-dom'
 import ItemDetail from './ItemDetail'
+import Loader from './Loader'
 
 const ItemDetailContainer = () => {
     const [detail, setDetail]= useState({})
+    const [cargando, setCargando]=useState(true)
   //   const param = useParams()
   // console.log(param)
    const {id} = useParams()
@@ -20,11 +22,12 @@ const ItemDetailContainer = () => {
         getOneProduct(id)
         .then((res)=> setDetail(res))
         .catch((error)=> console.log(error))
+        .finally(()=> setCargando(false))
     },[id])
   return (
-    <div>
-        <ItemDetail detail={detail}/>
-    </div>
+    <>
+       {cargando ? <Loader text='Cargando detalle...'/> : <ItemDetail detail={detail}/>} 
+    </>
   )
 }
 

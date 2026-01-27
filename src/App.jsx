@@ -5,21 +5,23 @@ import NavBarBS from './components/NavBarBS';
 import ItemDetailContainer from './components/ItemDetailContainer';
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import Error from './components/Error';
-import Input from './examples/Input';
+//importo al PROVEEDOR
+import { CartProvider } from './context/CartContext';
+import CartContainer from './components/CartContainer';
 function App() {
  
-
-
   return (
     <BrowserRouter>
+    <CartProvider>
       <NavBarBS/>
-      <Input/>
      <Routes>
       <Route path='/' element={ <ItemListContainer saludo='Bienvenidos a mi App!' />}/>
        <Route path='/category/:type' element={ <ItemListContainer saludo='Estas en la categoria: ' />}/>
       <Route path='/item/:id' element={ <ItemDetailContainer/>}/>
+      <Route path='/cart' element={<CartContainer/>}/>
       <Route path='*' element={<Error/>}/>
      </Routes>
+     </CartProvider>
     </BrowserRouter>
   )
 }
