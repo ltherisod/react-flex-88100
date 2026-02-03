@@ -19,7 +19,7 @@ const CartView = () => {
         ))}
     </div>
     {/* LLAMAR Y ARMAR UNA FUNCION EN CONTEXTO QUE DEVUELVA UN RESULTADO DE TOTAL A PAGAR */}
-    <span>Total a pagar: $</span>
+    <span>Total a pagar: ${total()},00</span>
     <div style={{display:'flex', justifyContent:'space-between', alignItems:'center', width:'80%', padding:'2rem'}}>
         <button className='btn btn-danger' onClick={clear}>Vaciar Carrito</button>
         <button className='btn btn-success'>Terminar compra</button>

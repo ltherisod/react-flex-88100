@@ -1,6 +1,6 @@
 const products =[
     {
-        id:'01',
+        id:'01',//NO PONGO EL ID HARCODEADO EN FIREBASE
         name:' Random 1',
         description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam rerum at, assumenda enim quae nulla.',
         stock:20,

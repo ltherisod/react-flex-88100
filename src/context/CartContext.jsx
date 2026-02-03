@@ -50,12 +50,15 @@ const [cart, setCart]=useState([])
 
     //funcion para el total a pagar
      const total = ()=> {
-
+        return cart.reduce((acc, prod)=> acc += (prod.quantity * prod.price),0 )
+     }
+         const totalConImpuestos = ()=> {
+        return cart.reduce((acc, prod)=> acc += (prod.quantity * prod.price),1.5 )
      }
 
      //funcion que sume cantidades
      const cartQuantity = ()=> {
-
+        return cart.reduce((acc, prod)=> acc += prod.quantity,0)
      }
 
 

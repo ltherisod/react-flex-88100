@@ -3,12 +3,12 @@ import { CartContext } from '../context/CartContext';
 import Badge from 'react-bootstrap/Badge';
 import { TiShoppingCart } from "react-icons/ti";
 const CartWidgetRI = () => {
-const {cart}=useContext(CartContext)
-console.log(cart)
+const {cart, cartQuantity}=useContext(CartContext)
+
   return (
     <div>
         <TiShoppingCart fontSize={'1.8rem'} />
-        <Badge bg="danger">5</Badge>
+        {cart.length > 0 && <Badge bg="danger">{cartQuantity()}</Badge>}
     </div>
   )
 }
