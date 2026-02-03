@@ -1,15 +1,16 @@
-const products =[
-    {
-        id:'01',//NO PONGO EL ID HARCODEADO EN FIREBASE
-        name:' Random 1',
-        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam rerum at, assumenda enim quae nulla.',
-        stock:20,
-        price:25000,
-        category:'nuevos',
-        img:'https://picsum.photos/200'
-    },
+export const products =[
+    //ya fue subido lo comento para no repertirlo
+    // {
+    //     id:'01',//NO PONGO EL ID HARCODEADO EN FIREBASE
+    //     name:' Random 1',
+    //     description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam rerum at, assumenda enim quae nulla.',
+    //     stock:20,
+    //     price:25000,
+    //     category:'nuevos',
+    //     img:'https://picsum.photos/200'
+    // },
      {
-        id:'02',
+        
         name:' Random 2',
         description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam rerum at, assumenda enim quae nulla.',
         stock:41,
@@ -18,7 +19,7 @@ const products =[
         img:'../img/darth-vader.png'
     },
     {
-        id:'03',
+       
         name:' Random 3',
         description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam rerum at, assumenda enim quae nulla.',
         stock:31,
@@ -27,7 +28,7 @@ const products =[
         img:'https://i.postimg.cc/J0nY4x9q/D-NQ-NP-2X-790947-MLU74201862127-012024-F.webp'
     },
       {
-        id:'04',
+       
         name:' Random 4',
         description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam rerum at, assumenda enim quae nulla.',
         stock:21,

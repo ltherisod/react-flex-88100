@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react"
-import { getProducts } from "../asyncMock/data"
+import { getProducts, products } from "../asyncMock/data"
 import ItemList from "./ItemList"
 import { useParams } from "react-router-dom"
 import Loader from "./Loader"
-import { collection, getDocs, query, where } from "firebase/firestore"
+import { addDoc, collection, getDocs, query, where } from "firebase/firestore"
 import { db } from "../service/firebase"
 const ItemListContainer = ({saludo, greeting})=> {
 const [data, setData]= useState([])
@@ -62,6 +62,13 @@ useEffect(()=>{
     // console.log(props)
     // console.log('ItemListContainer')
     // console.log(data)
+
+    //DESPUES SE BORRA!!!!!
+    // const subirData = ()=>{
+    //     console.log('subiendo datA...')
+    //     const colSubir = collection(db, 'productos')
+    //     products.map((prod)=> addDoc(colSubir, prod))
+    // }
     return(
         <>
         {
@@ -69,7 +76,8 @@ useEffect(()=>{
             ? <Loader text={type ? 'Cargando categoría' : 'Cargando productos'}/>
             : <div>
             <h1>{saludo} {type && <span style={{textTransform:'capitalize'}}>{type}</span>}</h1>
-           
+            {/* DESPUES LO BORRO SOLO LO PRESIONO UNA VEZ */}
+           {/* <button onClick={subirData}>SUBIR DATA</button> */}
             {/* {data.map((prod)=><div key={prod.id} >
                 <p>Producto:{prod.name}</p>
                 <p>${prod.price}</p>
