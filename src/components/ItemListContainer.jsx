@@ -1,16 +1,17 @@
 import { useEffect, useState } from "react"
 import { getProducts, products } from "../asyncMock/data"
 import ItemList from "./ItemList"
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import Loader from "./Loader"
 import { addDoc, collection, getDocs, query, where } from "firebase/firestore"
 import { db } from "../service/firebase"
 const ItemListContainer = ({saludo, greeting})=> {
 const [data, setData]= useState([])
 const [loading, setLoading]= useState(false)
+const [error, setError]= useState(null)
 const {type}= useParams()
+const navegar = useNavigate()
 
-console.log('Type: ',type)
 
 
 useEffect(()=>{
@@ -20,55 +21,26 @@ useEffect(()=>{
       //2. pedir los documentos
       getDocs(prodCollection)
       .then((res)=>{//tratamos la promesa
-        console.log(res)
-        console.log(res.docs)
-        //limpiar y obtener los datos
         const list = res.docs.map((doc)=>{
             return{
                 id:doc.id,
                 ...doc.data()
             }
         })
-        console.log(list)
+       
         setData(list)
       })
-        .catch((error)=>console.log(error))//atrapar el error
+        // .catch((error)=>setError(error))//atrapar el error
+         .catch((error)=>{
+            console.log(error)
+            navegar('/error')
+         })//atrapar el error
         .finally(()=> setLoading(false))
-        // console.log(getProducts())
     },[type])
 
-
-//PROMESA
-    //se ejecuta una sola veez
-    // useEffect(()=>{
-    //     setLoading(true)
-    //     //pedir datos
-    //     getProducts()//retorna una promesa
-    //     .then((res)=> {
-    //         if(type){
-    //             //filtrar
-    //             setData(res.filter((prod)=> prod.category === type ))
-    //         }else{
-    //             //no filtro
-    //             setData(res)
-    //         }
-    //     })//tratando la promesa y guandando la res en un estado
-    //     .catch((error)=>console.log(error))//atrapar el error
-    //     .finally(()=> setLoading(false))
-    //     // console.log(getProducts())
-    // },[type])
-    
-    // const {saludo}= props
-    // console.log(props)
-    // console.log('ItemListContainer')
-    // console.log(data)
-
-    //DESPUES SE BORRA!!!!!
-    // const subirData = ()=>{
-    //     console.log('subiendo datA...')
-    //     const colSubir = collection(db, 'productos')
-    //     products.map((prod)=> addDoc(colSubir, prod))
-    // }
+if(error){
+    return <p>Hubo un error, intente mas tarde</p>
+}
     return(
         <>
         {
@@ -76,12 +48,7 @@ useEffect(()=>{
             ? <Loader text={type ? 'Cargando categoría' : 'Cargando productos'}/>
             : <div>
             <h1>{saludo} {type && <span style={{textTransform:'capitalize'}}>{type}</span>}</h1>
-            {/* DESPUES LO BORRO SOLO LO PRESIONO UNA VEZ */}
-           {/* <button onClick={subirData}>SUBIR DATA</button> */}
-            {/* {data.map((prod)=><div key={prod.id} >
-                <p>Producto:{prod.name}</p>
-                <p>${prod.price}</p>
-            </div>)} */}
+            
             <ItemList data={data}/>
         </div>
         }

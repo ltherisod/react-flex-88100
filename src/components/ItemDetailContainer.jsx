@@ -10,8 +10,7 @@ const ItemDetailContainer = () => {
     const [detail, setDetail]= useState({})
     const [cargando, setCargando]=useState(true)
     const [invalid, setInvalid]=useState(null)
-  //   const param = useParams()
-  // console.log(param)
+
    const {id} = useParams()
 
 
@@ -33,21 +32,6 @@ const ItemDetailContainer = () => {
         .finally(()=> setCargando(false))
     },[id])
 
-    
-    //si quiero reutilizar la funcion de itemListContainer
-    // useEffect(()=>{
-    //     getProducts()
-    //     .then((res)=> setDetail(res.find((prod)=> prod.id === '03')))
-    //     .catch((error)=> console.log(error))
-    // },[])
-//PROMESA
-    //si hago una funcion a parte
-    // useEffect(()=>{
-    //     getOneProduct(id)
-    //     .then((res)=> setDetail(res))
-    //     .catch((error)=> console.log(error))
-    //     .finally(()=> setCargando(false))
-    // },[id])
 if(invalid){
   return(
     <div>

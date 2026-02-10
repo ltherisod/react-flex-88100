@@ -25,8 +25,7 @@ const buyerData = (e)=> {
 
 
 const finalizarCompra = (e)=> {
-//IMPORTANTE
-//para queno recargue la app 
+
     e.preventDefault()
     if(!buyer.name || !buyer.lastname || !buyer.email || !validMail){
         setError('Por favor complete los campos')
@@ -53,7 +52,6 @@ const finalizarCompra = (e)=> {
     }
 }       
 
-console.log(buyer)
 
 if(!cart.length && !orderId){
     return <EmptyCart/>

@@ -12,7 +12,6 @@ const Item = ({producto}) => {
         <Card.Text>
          ${producto.price},00
         </Card.Text>
-       {/* <Link to={'/item/'+producto.id} className='btn btn-dark'>Ver Más</Link> */}
         <Link to={`/item/${producto.id}`} className='btn btn-dark'>Ver Más</Link>
       </Card.Body>
     </Card>
